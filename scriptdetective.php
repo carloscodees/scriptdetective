@@ -2,10 +2,10 @@
 /**
  * Plugin Name: ScriptDetective
  * Description: Scans pages for loaded scripts and allows selective disabling/enabling. Improve performance and control.
- * Plugin URI: https://tusitio.com/scriptdetective
+ * Plugin URI: https://github.com/carloscodees/scriptdetective
  * Author: CarlosCodees
  * Version: 1.0.0
- * Author URI: https://tusitio.com
+ * Author URI: https://github.com/carloscodees/
  * Text Domain: scriptdetective
  * License: GPL-3.0+
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
