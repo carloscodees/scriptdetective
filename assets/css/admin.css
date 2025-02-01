@@ -1,0 +1,357 @@
+/* ===== Contenedor Principal ===== */
+#scriptdetective-metabox {
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+    border: 1px solid #ccd0d4;
+}
+
+/* ===== Controles ===== */
+.scriptdetective-controls {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+#scriptdetective-scan-btn {
+    position: relative;
+    padding-right: 30px;
+}
+
+#scriptdetective-scan-btn .dashicons {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ===== Loading ===== */
+#scriptdetective-loading {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+#scriptdetective-loading .spinner {
+    float: none;
+    margin: 0 10px 0 0;
+}
+
+/* ===== Resultados ===== */
+.scriptdetective-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.scriptdetective-filter label {
+    margin-left: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.scriptdetective-list {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* ===== Items de Scripts ===== */
+.script-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.script-item:last-child {
+    border-bottom: none;
+}
+
+.script-item:hover {
+    background: #fafafa;
+}
+
+/* Tipos de Scripts */
+.script-type {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.script-type.wp {
+    background: #2271b1;
+    color: #fff;
+}
+
+.script-type.external {
+    background: #00a32a;
+    color: #fff;
+}
+
+/* Información Principal */
+.script-main-info {
+    margin-top: 8px;
+}
+
+.script-handle {
+    font-weight: 600;
+    color: #1d2327;
+    margin-bottom: 3px;
+}
+
+.script-src {
+    color: #646970;
+    font-family: monospace;
+    font-size: 13px;
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+/* Detalles Expandibles */
+.script-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.script-toggle-details {
+    color: #2271b1;
+    padding: 2px;
+    margin: -2px;
+}
+
+.script-toggle-details:hover {
+    color: #135e96;
+}
+
+.script-toggle-details .dashicons {
+    transition: transform 0.2s ease;
+}
+
+.script-details {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: #f6f7f7;
+    border-radius: 3px;
+    border: 1px solid #dcdcde;
+}
+
+.script-detail {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.script-detail label {
+    min-width: 100px;
+    font-weight: 500;
+    color: #2271b1;
+}
+
+/* ===== Estados y Mensajes ===== */
+.scriptdetective-results .notice {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 782px) {
+    .scriptdetective-results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .scriptdetective-filter {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .scriptdetective-filter label {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+    
+    .script-detail {
+        flex-direction: column;
+        gap: 3px;
+    }
+    
+    .script-detail label {
+        min-width: auto;
+    }
+}
+
+/* ===== Animaciones ===== */
+@keyframes scriptdetective-fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.scriptdetective-list {
+    animation: scriptdetective-fade-in 0.3s ease;
+}
+
+/* ===== Toggle Switch ===== */
+.script-switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+    margin: 0 10px;
+}
+
+.script-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2271b1;
+}
+
+input:checked + .slider:before {
+    transform: translateX(15px);
+}
+
+/* ===== Estado Desactivado ===== */
+.script-item.disabled {
+    opacity: 0.7;
+    background: #f8f8f8;
+    border-left: 4px solid #dc3232;
+}
+
+.script-item.disabled .script-handle {
+    text-decoration: line-through;
+}
+
+/* ===== Loading durante toggle ===== */
+.script-item.updating {
+    pointer-events: none;
+    position: relative;
+}
+
+.script-item.updating:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: 2;
+}
+
+/* En admin.css */
+.script-src::after {
+    content: attr(data-version);
+    color: #999;
+    margin-left: 5px;
+    font-size: 0.9em;
+}
+
+/* En admin.css */
+.script-detail.size-info {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #eee;
+}
+
+.script-detail.size-info label {
+    color: #555;
+}
+.size-error {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #dc3232;
+    border-radius: 50%;
+    margin-left: 5px;
+    cursor: help;
+    position: relative;
+}
+
+.size-error::after {
+    content: "⚠️ CORS Error or missing headers";
+    position: absolute;
+    left: 20px;
+    top: -5px;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: none;
+    white-space: nowrap;
+}
+
+.size-error:hover::after {
+    display: block;
+}
+/* Estilo para scripts desaparecidos */
+.script-item.missing {
+    opacity: 0.6;
+    border-left-color: #ffb900;
+}
+
+.script-item.missing .script-handle {
+    font-style: italic;
+}
+
+.script-warning {
+    background: #fff8e5;
+    padding: 8px;
+    margin: -15px -15px 10px -15px;
+    border-bottom: 1px solid #ffb900;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.script-warning .dashicons {
+    color: #ffb900;
+}
