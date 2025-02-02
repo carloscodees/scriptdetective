@@ -4,7 +4,7 @@
 
 **Take full control of your WordPress scripts!** ScriptDetective helps you analyze, manage, and optimize script loading on your WordPress site.
 
-![ScriptDetective Demo]([screenshot.png](https://raw.githubusercontent.com/carloscodees/scriptdetective/refs/heads/main/assets/img/Screenshot.png)) <!-- Add actual screenshot later -->
+![ScriptDetective Demo](https://raw.githubusercontent.com/carloscodees/scriptdetective/refs/heads/main/assets/img/Screenshot.png) <!-- Add actual screenshot later -->
 
 ## Features 🚀
 
