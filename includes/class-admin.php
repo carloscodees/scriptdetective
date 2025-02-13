@@ -107,28 +107,30 @@ private function get_current_scripts($post_id, $disabled_scripts) {
 
     $scripts = [];
     $post_url = get_permalink($post_id);
-    
-    global $wp_scripts;
-    foreach ($wp_scripts->registered as $handle => $script) {
-        $size = $this->get_script_size($script->src);
-        $normalized_src = $this->normalize_src($script->src);
-        
-        $is_disabled = isset($disabled_scripts[$handle]) || isset($disabled_scripts[$normalized_src]);
-        $script_data = $disabled_scripts[$handle] ?? $disabled_scripts[$normalized_src] ?? [];
 
-        $scripts[] = [
-            'type' => 'wordpress',
-            'handle' => $handle,
-            'src' => $normalized_src,
-            'deps' => $script->deps,
-            'version' => $script->ver,
-            'in_footer' => $script->args,
-            'size' => $size,
-            'disabled' => $is_disabled,
-            'disabled_type' => $script_data['type'] ?? 'N/A',
-            'disabled_version' => $script_data['version'] ?? 'N/A',
-        ];
-    }
+    //@me Please review as when there are many records, more than 100, it hangs on the front for a moment.
+    
+    // global $wp_scripts;
+    // foreach ($wp_scripts->registered as $handle => $script) {
+    //     $size = $this->get_script_size($script->src);
+    //     $normalized_src = $this->normalize_src($script->src);
+        
+    //     $is_disabled = isset($disabled_scripts[$handle]) || isset($disabled_scripts[$normalized_src]);
+    //     $script_data = $disabled_scripts[$handle] ?? $disabled_scripts[$normalized_src] ?? [];
+
+    //     $scripts[] = [
+    //         'type' => 'wordpress',
+    //         'handle' => $handle,
+    //         'src' => $normalized_src,
+    //         'deps' => $script->deps,
+    //         'version' => $script->ver,
+    //         'in_footer' => $script->args,
+    //         'size' => $size,
+    //         'disabled' => $is_disabled,
+    //         'disabled_type' => $script_data['type'] ?? 'N/A',
+    //         'disabled_version' => $script_data['version'] ?? 'N/A',
+    //     ];
+    // }
 
     $html = $this->fetch_page_html($post_url);
     $dom_scripts = $this->parse_html_scripts($html);
